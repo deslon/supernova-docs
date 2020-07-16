@@ -3,8 +3,8 @@ site_url: 'http://docs.supernovaegine.org'
 site_author: 'Eduardo Dória Lima'
 site_description: 'Supernova Engine documentation'
 
-repo_name: 'deslon/supernova'
-repo_url: 'https://github.com/deslon/supernova'
+repo_name: 'supernovaengine/supernova'
+repo_url: 'https://github.com/supernovaengine/supernova'
 edit_uri: '../supernova-docs/edit/master/docs'
 
 google_analytics: ['UA-113314204-2','docs.supernovaengine.org']
@@ -30,7 +30,7 @@ extra_javascript:
 extra:
   social:
     - icon: 'fontawesome/brands/github-alt'
-      link: 'https://github.com/deslon/supernova'
+      link: 'https://github.com/supernovaengine/supernova'
   version: 1.0
 
 copyright: 'Copyright &copy; 2018, Eduardo Dória Lima (CC-BY 3.0)'
