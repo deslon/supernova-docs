@@ -17,6 +17,8 @@ theme:
   #  accent: 'indigo'
   feature:
     tabs: false
+  features:
+   - content.tabs.link
 
 extra_css:
   - 'css/extra.css'
@@ -53,10 +55,13 @@ nav:
 - Getting started:
   - Creating a basic project: 'getting-started/creating-a-basic-project.md'
   - Coordinate systems: 'getting-started/coordinate-systems.md'
-  - Building project:
-    - Building for Android: 'getting-started/building-project/building-for-android.md'
-    - Building for iOS: 'getting-started/building-project/building-for-ios.md'
-    - Building for HTML5: 'getting-started/building-project/building-for-html5.md'
+  - Building:
+    - Building for Windows: 'getting-started/building/building-for-windows.md'
+    - Building for Linux: 'getting-started/building/building-for-linux.md'
+    - Building for macOS: 'getting-started/building/building-for-macos.md'
+    - Building for iOS: 'getting-started/building/building-for-ios.md'
+    - Building for Android: 'getting-started/building/building-for-android.md'
+    - Building for HTML5: 'getting-started/building/building-for-html5.md'
 - Learning:
   - Screen scaling: 'learning/screen-scaling.md'
   - Object animation: 'learning/object-animation.md'
