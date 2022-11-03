@@ -20,76 +20,82 @@ In Supernova to use particle system you have to create two kind of objects: Part
     * ParticleVelocityMod
 
 Here is an example how Inittializers and Modifiers can be used to create particles animation.
-``` c++
-#include "Supernova.h"
-#include "Scene.h"
-#include "Particles.h"
-#include "ParticlesAnimation.h"
-#include "ParticleLifeInit.h"
-#include "ParticleSizeInit.h"
-#include "ParticleVelocityInit.h"
-#include "ParticleColorMod.h"
-#include "ParticleRotationMod.h"
 
-using namespace Supernova;
+=== ":octicons-file-code-16: `C++`"
 
-Scene scene;
-Particles *particles;
-ParticlesAnimation* particlesanim;
+    ``` c++
+    #include "Supernova.h"
+    #include "Scene.h"
+    #include "Particles.h"
+    #include "ParticlesAnimation.h"
+    #include "ParticleLifeInit.h"
+    #include "ParticleSizeInit.h"
+    #include "ParticleVelocityInit.h"
+    #include "ParticleColorMod.h"
+    #include "ParticleRotationMod.h"
 
-void init(){
-    Engine::setCanvasSize(1000, 480);
-    
-    particles = new Particles();
-    particlesanim = new ParticlesAnimation();
-    
-    particles->setRate(10);
-    particles->setMaxParticles(100);;
-    particles->setTexture("f4.png");
-    particles->setPosition(200, 200, 0);
-    particles->addAction(particlesanim);
-    
-    particlesanim->addInit(new ParticleLifeInit(10, 10));
-    particlesanim->addInit(new ParticleSizeInit(50, 100));
-    particlesanim->addInit(new ParticleVelocityInit(Vector3(-15,-4, 0),Vector3(15,24, 0)));
-    
-    particlesanim->addMod(new ParticleColorMod(10, 0, 0, 1, 0, 1, 0, 0));
-    particlesanim->addMod(new ParticleRotationMod(9, 1, 0, 180));
-    
-    particlesanim->run();
-    
-    scene.addObject(particles);
-    
-    Engine::setScene(&scene);
-}
-```     
-``` lua
-Engine.setCanvasSize(1000,480)
+    using namespace Supernova;
 
-scene = Scene()
+    Scene scene;
+    Particles *particles;
+    ParticlesAnimation* particlesanim;
 
-particles = Particles()
-particlesanim = ParticlesAnimation()
+    void init(){
+        Engine::setCanvasSize(1000, 480);
+        
+        particles = new Particles();
+        particlesanim = new ParticlesAnimation();
+        
+        particles->setRate(10);
+        particles->setMaxParticles(100);;
+        particles->setTexture("f4.png");
+        particles->setPosition(200, 200, 0);
+        particles->addAction(particlesanim);
+        
+        particlesanim->addInit(new ParticleLifeInit(10, 10));
+        particlesanim->addInit(new ParticleSizeInit(50, 100));
+        particlesanim->addInit(new ParticleVelocityInit(Vector3(-15,-4, 0),Vector3(15,24, 0)));
+        
+        particlesanim->addMod(new ParticleColorMod(10, 0, 0, 1, 0, 1, 0, 0));
+        particlesanim->addMod(new ParticleRotationMod(9, 1, 0, 180));
+        
+        particlesanim->run();
+        
+        scene.addObject(particles);
+        
+        Engine::setScene(&scene);
+    }
+    ```
 
-particles:setRate(10)
-particles:setMaxParticles(100)
-particles:setTexture("f4.png")
-particles:setPosition(200, 200, 0)
-particles:addAction(particlesanim)
+=== ":material-language-lua: `Lua`"
 
-particlesanim:addInit(ParticleLifeInit(10, 10))
-particlesanim:addInit(ParticleSizeInit(50, 100))
-particlesanim:addInit(ParticleVelocityInit(Vector3(-15,-4, 0),Vector3(15,24, 0)))
+    ``` lua
+    Engine.setCanvasSize(1000,480)
 
-particlesanim:addMod(ParticleColorMod(10, 0, 0, 1, 0, 1, 0, 0))
-particlesanim:addMod(ParticleRotationMod(9, 1, 0, 180))
+    scene = Scene()
 
-particlesanim:run()
+    particles = Particles()
+    particlesanim = ParticlesAnimation()
 
-scene:addObject(particles)
+    particles:setRate(10)
+    particles:setMaxParticles(100)
+    particles:setTexture("f4.png")
+    particles:setPosition(200, 200, 0)
+    particles:addAction(particlesanim)
 
-Engine.setScene(scene)
-```
+    particlesanim:addInit(ParticleLifeInit(10, 10))
+    particlesanim:addInit(ParticleSizeInit(50, 100))
+    particlesanim:addInit(ParticleVelocityInit(Vector3(-15,-4, 0),Vector3(15,24, 0)))
+
+    particlesanim:addMod(ParticleColorMod(10, 0, 0, 1, 0, 1, 0, 0))
+    particlesanim:addMod(ParticleRotationMod(9, 1, 0, 180))
+
+    particlesanim:run()
+
+    scene:addObject(particles)
+
+    Engine.setScene(scene)
+    ```
 
 ##Particle Initializers
 

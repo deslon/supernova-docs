@@ -1,13 +1,11 @@
 site_name: Supernova
-site_url: 'http://docs.supernovaegine.org'
+site_url: 'http://docs.supernovaengine.org'
 site_author: 'Eduardo Dória Lima'
 site_description: 'Supernova Engine documentation'
 
 repo_name: 'supernovaengine/supernova'
 repo_url: 'https://github.com/supernovaengine/supernova'
 edit_uri: '../supernova-docs/edit/master/docs'
-
-google_analytics: ['UA-113314204-2','docs.supernovaengine.org']
 
 theme:
   name: 'material'
@@ -22,27 +20,33 @@ theme:
 
 extra_css:
   - 'css/extra.css'
-  - 'css/code-tabs.css'
 
-extra_javascript:
-  - 'js/code-tabs.js'
+#extra_javascript:
 
 extra:
   social:
     - icon: 'fontawesome/brands/github-alt'
       link: 'https://github.com/supernovaengine/supernova'
+  analytics:
+    provider: google
+    property: UA-113314204-2
   version: 1.0
 
-copyright: 'Copyright &copy; 2018, Eduardo Dória Lima (CC-BY 3.0)'
+copyright: 'Copyright &copy; 2022, Eduardo Dória (CC-BY 3.0)'
 
 markdown_extensions:
-  - admonition
-  - codehilite
-#      linenums: True
+  - md_in_html
   - toc:
       permalink: true
-  - markdown_fenced_code_tabs:
-      single_block_as_tab: True
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 nav:
 - Introduction: 'index.md'

@@ -5,9 +5,6 @@ This is the official documentation and tutorials of Supernova. We are still in e
 !!! note
     **Docs is under development.**
 
-!!! warning
-    **Supernova is not yet ready for production.**
-
 <div style="display: flex">
   <div style="flex: 1; margin: 0 1em 0 0">
     <strong>Made for programmers</strong>
