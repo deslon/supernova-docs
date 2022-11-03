@@ -15,7 +15,7 @@
         <link rel="canonical" href="http://docs.supernovaengine.org/getting-started/creating-a-basic-project/">
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
     
     
       
@@ -26,7 +26,7 @@
       <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.815d1a91.min.css">
         
       
       
@@ -358,14 +358,14 @@
       
       
         <label class="md-nav__link" for="__nav_2_3">
-          Building project
+          Building
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Building project" data-md-level="2">
+      <nav class="md-nav" aria-label="Building" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
-          Building project
+          Building
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -375,8 +375,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../building-project/building-for-android/" class="md-nav__link">
-        Building for Android
+      <a href="../building/building-for-windows/" class="md-nav__link">
+        Building for Windows
       </a>
     </li>
   
@@ -389,7 +389,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../building-project/building-for-ios/" class="md-nav__link">
+      <a href="../building/building-for-linux/" class="md-nav__link">
+        Building for Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/building-for-macos/" class="md-nav__link">
+        Building for macOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/building-for-ios/" class="md-nav__link">
         Building for iOS
       </a>
     </li>
@@ -403,7 +431,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../building-project/building-for-html5/" class="md-nav__link">
+      <a href="../building/building-for-android/" class="md-nav__link">
+        Building for Android
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/building-for-html5/" class="md-nav__link">
         Building for HTML5
       </a>
     </li>
@@ -569,55 +611,87 @@
 
 <p>In this example we will create a simple triangle. The same sample code can be used in any platform.</p>
 <h2 id="file-organization-tree">File organization tree<a class="headerlink" href="#file-organization-tree" title="Permanent link">&para;</a></h2>
+<ul>
+<li><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> engine<ul>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> core</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> libs</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> renders</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> shaders</li>
+</ul>
+</li>
+<li><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> platform<ul>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> android</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> apple</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> emscripten</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> glfw</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> sokol</li>
+</ul>
+</li>
+<li><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <strong>project</strong> <code>(your project here)</code><ul>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> assets</li>
+<li><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> lua<ul>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0v-2.5zm7.5-.188V4.25c0 .138.112.25.25.25h2.688a.252.252 0 0 0-.011-.013l-2.914-2.914a.272.272 0 0 0-.013-.011zM5.72 6.72a.75.75 0 0 0 0 1.06l1.47 1.47-1.47 1.47a.75.75 0 1 0 1.06 1.06l2-2a.75.75 0 0 0 0-1.06l-2-2a.75.75 0 0 0-1.06 0zM3.28 7.78a.75.75 0 0 0-1.06-1.06l-2 2a.75.75 0 0 0 0 1.06l2 2a.75.75 0 0 0 1.06-1.06L1.81 9.25l1.47-1.47z"/></svg></span> <strong>main.lua</strong></li>
+</ul>
+</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0v-2.5zm7.5-.188V4.25c0 .138.112.25.25.25h2.688a.252.252 0 0 0-.011-.013l-2.914-2.914a.272.272 0 0 0-.013-.011zM5.72 6.72a.75.75 0 0 0 0 1.06l1.47 1.47-1.47 1.47a.75.75 0 1 0 1.06 1.06l2-2a.75.75 0 0 0 0-1.06l-2-2a.75.75 0 0 0-1.06 0zM3.28 7.78a.75.75 0 0 0-1.06-1.06l-2 2a.75.75 0 0 0 0 1.06l2 2a.75.75 0 0 0 1.06-1.06L1.81 9.25l1.47-1.47z"/></svg></span> <strong>main.cpp</strong></li>
+</ul>
+</li>
+<li><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> tools<ul>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> bin</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> binshaders</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> shaderlib</li>
+</ul>
+</li>
+<li><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> workspaces<ul>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> androidstudio</li>
+<li><img alt="📁" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c1.svg" title=":file_folder:" /> xcode</li>
+</ul>
+</li>
+</ul>
 <h2 id="1-using-c">1. Using C++<a class="headerlink" href="#1-using-c" title="Permanent link">&para;</a></h2>
 <p>In Supernova file tree there is a <code>main.cpp</code> file located in <code>project/</code> folder. This file is used to start the game development in C++. As you can see, there is a call for <code>supernova.h</code>, that will call <code>init()</code> function when game started.</p>
 <p>Edit it with the code:</p>
-<p><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Supernova.h&quot;</span><span class="cp"></span>
-
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Scene.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Polygon.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Camera.h&quot;</span><span class="cp"></span>
-
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Supernova.h&quot;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">Supernova</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Polygon</span><span class="w"> </span><span class="n">triangle</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Polygon.h&quot;</span><span class="cp"></span>
+
 <span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="p">;</span><span class="w"></span>
+<span class="n">Polygon</span><span class="w"> </span><span class="nf">triangle</span><span class="p">(</span><span class="o">&amp;</span><span class="n">scene</span><span class="p">);</span><span class="w"></span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="n">Engine</span><span class="o">::</span><span class="n">setCanvasSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mi">480</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">triangle</span><span class="p">.</span><span class="n">addVertex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-100</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">triangle</span><span class="p">.</span><span class="n">addVertex</span><span class="p">(</span><span class="mi">-50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">triangle</span><span class="p">.</span><span class="n">addVertex</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">triangle</span><span class="p">.</span><span class="n">addVertex</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="n">triangle</span><span class="p">.</span><span class="n">addVertex</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mi">-50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="n">triangle</span><span class="p">.</span><span class="n">addVertex</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">triangle</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">triangle</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span><span class="w"></span>
 <span class="w">    </span><span class="n">triangle</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">scene</span><span class="p">.</span><span class="n">addObject</span><span class="p">(</span><span class="o">&amp;</span><span class="n">triangle</span><span class="p">);</span><span class="w"></span>
 
+<span class="w">    </span><span class="n">Engine</span><span class="o">::</span><span class="n">setCanvasSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">480</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="n">Engine</span><span class="o">::</span><span class="n">setScene</span><span class="p">(</span><span class="o">&amp;</span><span class="n">scene</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-If you have both Lua and C++ calling Supernova static method <code>setScene()</code>, the last call will be from Lua, so C++ code will not work.</p>
 <h2 id="2-using-lua">2. Using Lua<a class="headerlink" href="#2-using-lua" title="Permanent link">&para;</a></h2>
 <p>In Supernova file tree there is a <code>main.lua</code> file located in <code>assets/lua/</code> folder. This file is used to start the game development in Lua. You can call any other Lua files by this.</p>
 <p>Edit it with the code:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Engine</span><span class="p">.</span><span class="n">setCanvasSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">scene</span> <span class="o">=</span> <span class="n">Scene</span><span class="p">()</span>
+<span class="n">triangle</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">scene</span><span class="p">)</span>
 
-<span class="n">scene</span> <span class="o">=</span> <span class="n">Scene</span><span class="p">()</span>
-<span class="n">triangle</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">()</span>
+<span class="n">triangle</span><span class="p">:</span><span class="n">addVertex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span><span class="n">addVertex</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">triangle</span><span class="p">:</span><span class="n">addVertex</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
 
-<span class="n">triangle</span><span class="p">:</span><span class="n">addVertex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">triangle</span><span class="p">:</span><span class="n">addVertex</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">triangle</span><span class="p">:</span><span class="n">addVertex</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="n">triangle</span><span class="p">:</span><span class="n">setPosition</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">triangle</span><span class="p">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">triangle</span><span class="p">:</span><span class="n">setColor</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="n">scene</span><span class="p">:</span><span class="n">addObject</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
-
+<span class="n">Engine</span><span class="p">.</span><span class="n">setCanvasSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
 <span class="n">Engine</span><span class="p">.</span><span class="n">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">)</span>
 </code></pre></div>
 <p>Now you can <strong>run</strong> to see the result.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you have both Lua and C++ calling Supernova static method <code>setScene()</code>, the last call will be from C++, so Lua code will not work. Use <code>NO_CPP_INIT</code> or <code>NO_LUA_INIT</code> macro to avoid init to be called.</p>
+</div>
 
 
   
@@ -630,6 +704,8 @@ If you have both Lua and C++ calling Supernova static method <code>setScene()</c
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -710,10 +786,10 @@ If you have both Lua and C++ calling Supernova static method <code>setScene()</c
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": 1.0}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": 1.0}</script>
     
     
-      <script src="../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
     
   </body>

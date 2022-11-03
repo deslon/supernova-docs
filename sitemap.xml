@@ -16,17 +16,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.supernovaengine.org/getting-started/building-project/building-for-android/</loc>
+         <loc>http://docs.supernovaengine.org/getting-started/building/building-for-android/</loc>
          <lastmod>2022-11-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.supernovaengine.org/getting-started/building-project/building-for-html5/</loc>
+         <loc>http://docs.supernovaengine.org/getting-started/building/building-for-html5/</loc>
          <lastmod>2022-11-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://docs.supernovaengine.org/getting-started/building-project/building-for-ios/</loc>
+         <loc>http://docs.supernovaengine.org/getting-started/building/building-for-ios/</loc>
+         <lastmod>2022-11-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://docs.supernovaengine.org/getting-started/building/building-for-linux/</loc>
+         <lastmod>2022-11-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://docs.supernovaengine.org/getting-started/building/building-for-macos/</loc>
+         <lastmod>2022-11-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://docs.supernovaengine.org/getting-started/building/building-for-windows/</loc>
          <lastmod>2022-11-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
