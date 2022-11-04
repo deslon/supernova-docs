@@ -390,6 +390,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-install-dependencies" class="md-nav__link">
+    2. Install dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-build-for-macos" class="md-nav__link">
+    3. Build for macOS
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Build for macOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-using-build-tool" class="md-nav__link">
+    a. Using build tool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-using-cmake" class="md-nav__link">
+    b. Using CMake
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -561,6 +595,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-install-dependencies" class="md-nav__link">
+    2. Install dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-build-for-macos" class="md-nav__link">
+    3. Build for macOS
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Build for macOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-using-build-tool" class="md-nav__link">
+    a. Using build tool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-using-cmake" class="md-nav__link">
+    b. Using CMake
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -583,8 +651,34 @@
 
   <h1>Building for macOS</h1>
 
-<h4 id="1-clone-supernova-repo">1. Clone Supernova repo<a class="headerlink" href="#1-clone-supernova-repo" title="Permanent link">&para;</a></h4>
+<h3 id="1-clone-supernova-repo">1. Clone Supernova repo<a class="headerlink" href="#1-clone-supernova-repo" title="Permanent link">&para;</a></h3>
 <p><code>git clone https://github.com/supernovaengine/supernova.git</code></p>
+<h3 id="2-install-dependencies">2. Install dependencies<a class="headerlink" href="#2-install-dependencies" title="Permanent link">&para;</a></h3>
+<ul>
+<li>cmake</li>
+</ul>
+<h3 id="3-build-for-macos">3. Build for macOS<a class="headerlink" href="#3-build-for-macos" title="Permanent link">&para;</a></h3>
+<h4 id="a-using-build-tool">a. Using build tool<a class="headerlink" href="#a-using-build-tool" title="Permanent link">&para;</a></h4>
+<p>In <code>tools</code> directory:</p>
+<div class="highlight"><pre><span></span><code>python3 supernova.py --build --platform windows
+</code></pre></div>
+<h4 id="b-using-cmake">b. Using CMake<a class="headerlink" href="#b-using-cmake" title="Permanent link">&para;</a></h4>
+<p>In Supernova root directory:</p>
+<p><div class="highlight"><pre><span></span><code>mkdir build
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mkdir instdir
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>cmake \
+-S . \
+-B build \
+-DCMAKE_BUILD_TYPE=Debug \
+-G &quot;Visual Studio 17 2022&quot; \
+-DCMAKE_INSTALL_PREFIX:PATH=instdir
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>cmake --build build --config Debug --target supernova-project
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>cmake --install build --config Debug --strip
+</code></pre></div></p>
 
 
   

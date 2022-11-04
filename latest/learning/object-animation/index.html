@@ -507,11 +507,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#timeaction" class="md-nav__link">
-    TimeAction
+  <a href="#timedaction" class="md-nav__link">
+    TimedAction
   </a>
   
-    <nav class="md-nav" aria-label="TimeAction">
+    <nav class="md-nav" aria-label="TimedAction">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -719,11 +719,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#timeaction" class="md-nav__link">
-    TimeAction
+  <a href="#timedaction" class="md-nav__link">
+    TimedAction
   </a>
   
-    <nav class="md-nav" aria-label="TimeAction">
+    <nav class="md-nav" aria-label="TimedAction">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -885,12 +885,12 @@
 
   <h1>Object animation</h1>
 
-<p>It`s possible to animate any object. This page explains how to make the animation work in many ways and ease functions. Animations in Supernova are made by Actions. These Actions can be used in all Scene objects.</p>
+<p>It`s possible to animate any object. This page explains how to make the animation work in many ways and ease functions. Animations in Supernova are made by Actions. These Actions can be used in almost all Scene objects.</p>
 <p>There are these types of actions:</p>
 <ul>
-<li>TimeAction<ul>
-<li>MoveAction</li>
-<li>RotateAction</li>
+<li>TimedAction<ul>
+<li>PositionAction</li>
+<li>RotationAction</li>
 <li>ScaleAction</li>
 <li>ColorAction</li>
 <li>AlphaAction</li>
@@ -898,6 +898,7 @@
 </li>
 <li>ParticlesAnimation</li>
 <li>SpriteAnimation</li>
+<li>Animation</li>
 </ul>
 <h3 id="action-control">Action control<a class="headerlink" href="#action-control" title="Permanent link">&para;</a></h3>
 <p>Any kind of <strong>action</strong> can be controlled with these tree main methods:</p>
@@ -910,7 +911,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>run()</code></td>
+<td><code>start()</code></td>
 <td>Start an Action ou resume if is paused.</td>
 </tr>
 <tr>
@@ -934,33 +935,21 @@
 </thead>
 <tbody>
 <tr>
-<td><code>onStart(Object*)</code></td>
-<td>Called when Action is started (timestamp = 0).</td>
+<td><code>onStart()</code></td>
+<td>When method Start() is called.</td>
 </tr>
 <tr>
-<td><code>onRun(Object*)</code></td>
-<td>When method run() is called.</td>
-</tr>
-<tr>
-<td><code>onPause(Object*)</code></td>
+<td><code>onPause()</code></td>
 <td>When method pause() is called.</td>
 </tr>
 <tr>
-<td><code>onStop(Object*)</code></td>
+<td><code>onStop()</code></td>
 <td>When method stop() is called.</td>
-</tr>
-<tr>
-<td><code>onFinish(Object*)</code></td>
-<td>Called after finished Action. if loop is true this will never be called.</td>
-</tr>
-<tr>
-<td><code>onStep(Object*)</code></td>
-<td>Called at each iteration. Usually sync with onDraw engine event.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="timeaction">TimeAction<a class="headerlink" href="#timeaction" title="Permanent link">&para;</a></h2>
-<p>TimeAction is a generic type of action that has the values <code>time</code> and <code>value</code>. Both values can range from 0 to 1. The <code>time</code> is always fixed by a pre-defined duration, but <code>value</code> is calculated by an ease function. <code>Value</code> can be controlled by both pre-defined functions and user-defined functions.</p>
+<h2 id="timedaction">TimedAction<a class="headerlink" href="#timedaction" title="Permanent link">&para;</a></h2>
+<p>TimedAction is a generic type of action that has the values <code>time</code> and <code>value</code>. Both values can range from 0 to 1. The <code>time</code> is always fixed by a pre-defined duration, but <code>value</code> is calculated by an ease function. <code>Value</code> can be controlled by both pre-defined functions and user-defined functions.</p>
 <p>Getting value and time from Action:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0v-2.5zm7.5-.188V4.25c0 .138.112.25.25.25h2.688a.252.252 0 0 0-.011-.013l-2.914-2.914a.272.272 0 0 0-.013-.011zM5.72 6.72a.75.75 0 0 0 0 1.06l1.47 1.47-1.47 1.47a.75.75 0 1 0 1.06 1.06l2-2a.75.75 0 0 0 0-1.06l-2-2a.75.75 0 0 0-1.06 0zM3.28 7.78a.75.75 0 0 0-1.06-1.06l-2 2a.75.75 0 0 0 0 1.06l2 2a.75.75 0 0 0 1.06-1.06L1.81 9.25l1.47-1.47z"/></svg></span> <code>C++</code></label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.5 5A8.5 8.5 0 0 0 2 13.5a8.5 8.5 0 0 0 8.5 8.5 8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 10.5 5m3 8a2.5 2.5 0 0 1-2.5-2.5A2.5 2.5 0 0 1 13.5 8a2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5m6-11A2.5 2.5 0 0 0 17 4.5 2.5 2.5 0 0 0 19.5 7 2.5 2.5 0 0 0 22 4.5 2.5 2.5 0 0 0 19.5 2"/></svg></span> <code>Lua</code></label></div>
 <div class="tabbed-content">
@@ -976,9 +965,22 @@
 </div>
 </div>
 </div>
-<p>Class default constructor:<br />
-<strong>TimeAction(float duration, bool loop)</strong></p>
-<p>Example how to use <strong>TimeAction</strong> that is activating on touch start and on every step triangle is moved:</p>
+<table>
+<thead>
+<tr>
+<th>Used components:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ActionComponent</td>
+</tr>
+<tr>
+<td>TimedActionComponent</td>
+</tr>
+</tbody>
+</table>
+<p>Example how to use <strong>TimedAction</strong> class that is activating on touch start and on every step triangle is moved:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0v-2.5zm7.5-.188V4.25c0 .138.112.25.25.25h2.688a.252.252 0 0 0-.011-.013l-2.914-2.914a.272.272 0 0 0-.013-.011zM5.72 6.72a.75.75 0 0 0 0 1.06l1.47 1.47-1.47 1.47a.75.75 0 1 0 1.06 1.06l2-2a.75.75 0 0 0 0-1.06l-2-2a.75.75 0 0 0-1.06 0zM3.28 7.78a.75.75 0 0 0-1.06-1.06l-2 2a.75.75 0 0 0 0 1.06l2 2a.75.75 0 0 0 1.06-1.06L1.81 9.25l1.47-1.47z"/></svg></span> <code>C++</code></label><label for="__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.5 5A8.5 8.5 0 0 0 2 13.5a8.5 8.5 0 0 0 8.5 8.5 8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 10.5 5m3 8a2.5 2.5 0 0 1-2.5-2.5A2.5 2.5 0 0 1 13.5 8a2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5m6-11A2.5 2.5 0 0 0 17 4.5 2.5 2.5 0 0 0 19.5 7 2.5 2.5 0 0 0 22 4.5 2.5 2.5 0 0 0 19.5 2"/></svg></span> <code>Lua</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

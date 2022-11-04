@@ -675,9 +675,13 @@
 <div class="highlight"><pre><span></span><code>cmake \
 -S . \
 -B build \
--DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
--G &quot;${{ matrix.config.generators }}&quot; \
+-DCMAKE_BUILD_TYPE=Debug \
+-G &quot;Ninja&quot; \
 -DCMAKE_INSTALL_PREFIX:PATH=instdir
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>cmake --build build --config Debug --target supernova-project
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>cmake --install build --config Debug --strip
 </code></pre></div></p>
 
 
