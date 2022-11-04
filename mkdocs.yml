@@ -37,6 +37,7 @@ extra:
 copyright: 'Copyright &copy; 2022, Eduardo Dória (CC-BY 3.0)'
 
 markdown_extensions:
+  - tables
   - md_in_html
   - toc:
       permalink: true
@@ -54,7 +55,6 @@ nav:
 - Introduction: 'index.md'
 - Getting started:
   - Creating a basic project: 'getting-started/creating-a-basic-project.md'
-  - Coordinate systems: 'getting-started/coordinate-systems.md'
   - Building:
     - Building for Windows: 'getting-started/building/building-for-windows.md'
     - Building for Linux: 'getting-started/building/building-for-linux.md'
@@ -63,6 +63,7 @@ nav:
     - Building for Android: 'getting-started/building/building-for-android.md'
     - Building for HTML5: 'getting-started/building/building-for-html5.md'
 - Learning:
+#  - Coordinate systems: 'learning/coordinate-systems.md'
   - Screen scaling: 'learning/screen-scaling.md'
   - Object animation: 'learning/object-animation.md'
-  - Particle system: 'learning/particle-system.md'
+#  - Particle system: 'learning/particle-system.md'
