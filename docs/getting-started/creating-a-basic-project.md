@@ -56,7 +56,7 @@ void init(){
 
 ## 2. Using Lua
 
-In Supernova file tree there is a ```main.lua``` file located in ```assets/lua/``` folder. This file is used to start the game development in Lua. You can call any other Lua files by this.
+In Supernova file tree there is a ```main.lua``` file located in ```project/lua/``` folder. This file is used to start the game development in Lua. You can call any other Lua files by this.
 
 Edit it with the code:
 
