@@ -33,7 +33,13 @@ mkdir instdir
 cmake \
 -S . \
 -B build \
--DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
--G "${{ matrix.config.generators }}" \
+-DCMAKE_BUILD_TYPE=Debug \
+-G "Ninja" \
 -DCMAKE_INSTALL_PREFIX:PATH=instdir
+```
+```
+cmake --build build --config Debug --target supernova-project
+```
+```
+cmake --install build --config Debug --strip
 ```

@@ -1,14 +1,14 @@
 #Supernova Engine
 
-This is the official documentation and tutorials of Supernova. We are still in early development, so these documents can still be very incomplete.
+This is the official documentation and tutorials of Supernova Engine.
 
 !!! note
     **Docs is under development.**
 
 <div style="display: flex">
   <div style="flex: 1; margin: 0 1em 0 0">
-    <strong>Made for programmers</strong>
-    <p>Take a control of your game code. This is a game engine for real programmers.</p>
+    <strong>Entity component system</strong>
+    <p>Designed in modern architecture using pattern of "entities" with "components" of data.</p>
   </div>
   <div style="flex: 1">
     <strong>Simple and Fast</strong>
@@ -23,7 +23,20 @@ This is the official documentation and tutorials of Supernova. We are still in e
   </div>
   <div style="flex: 1">
     <strong>Cross-platform</strong>
-    <p>Write the code once and use it in Android, iOS and HTML5. It runs native in each platform with OpenGL ES.</p>
+    <p>Write the code once and use it in Android, iOS, HTML5, Windows, Linux and MacOS. It runs native in each platform with OpenGL, Metal or DirectX.
+
+</p>
+  </div>
+</div>
+
+<div style="display: flex">
+  <div style="flex: 1; margin: 0 1em 0 0">
+    <strong>PBR shaders</strong>
+    <p>Very realistic shaders to make state-of-the-art graphics.</p>
+  </div>
+  <div style="flex: 1">
+    <strong>Data oriented design</strong>
+    <p>Get rid all performance issues of Object Oriented Programming, arranging data to take improve of CPU caching.</p>
   </div>
 </div>
 
@@ -49,9 +62,12 @@ This is the official documentation and tutorials of Supernova. We are still in e
 
 #### Building Supernova
 
-[Building for Android](getting-started/building-project/building-for-android)  
-[Building for iOS](getting-started/building-project/building-for-ios)  
-[Building for HTML5 (Emscripten)](getting-started/building-project/building-for-html5)
+[Building for Windows](getting-started/building/building-for-windows)  
+[Building for Linux](getting-started/building/building-for-linux)  
+[Building for maxOS](getting-started/building/building-for-macos)  
+[Building for Android](getting-started/building/building-for-android)  
+[Building for iOS](getting-started/building/building-for-ios)  
+[Building for HTML5 (Emscripten)](getting-started/building/building-for-html5)
 
 ### Learning
 

@@ -1,15 +1,16 @@
-It`s possible to animate any object. This page explains how to make the animation work in many ways and ease functions. Animations in Supernova are made by Actions. These Actions can be used in all Scene objects.
+It`s possible to animate any object. This page explains how to make the animation work in many ways and ease functions. Animations in Supernova are made by Actions. These Actions can be used in almost all Scene objects.
 
 There are these types of actions:
 
-* TimeAction
-    * MoveAction
-    * RotateAction
+* TimedAction
+    * PositionAction
+    * RotationAction
     * ScaleAction
     * ColorAction
     * AlphaAction
 * ParticlesAnimation
 * SpriteAnimation
+* Animation
 
 ### Action control
 
@@ -17,7 +18,7 @@ Any kind of **action** can be controlled with these tree main methods:
 
 | Method | Description |
 | ----- | ----------- |
-| ```run()``` | Start an Action ou resume if is paused. |
+| ```start()``` | Start an Action ou resume if is paused. |
 | ```stop()``` | Stop and reset it timestamp. |
 | ```pause()``` | Pause an Action, could be resumed with run(). |
 
@@ -27,16 +28,13 @@ Also, you can use actions with these callback events:
 
 | Event | Description |
 | ----- | ----------- |
-| ```onStart(Object*)``` | Called when Action is started (timestamp = 0). |
-| ```onRun(Object*)``` | When method run() is called. |
-| ```onPause(Object*)``` | When method pause() is called. |
-| ```onStop(Object*)``` | When method stop() is called. |
-| ```onFinish(Object*)``` | Called after finished Action. if loop is true this will never be called. |
-| ```onStep(Object*)``` | Called at each iteration. Usually sync with onDraw engine event. |
+| ```onStart()``` | When method Start() is called. |
+| ```onPause()``` | When method pause() is called. |
+| ```onStop()``` | When method stop() is called. |
 
-## TimeAction
+## TimedAction
 
-TimeAction is a generic type of action that has the values ```time``` and ```value```. Both values can range from 0 to 1. The ```time``` is always fixed by a pre-defined duration, but ```value``` is calculated by an ease function. ```Value``` can be controlled by both pre-defined functions and user-defined functions.
+TimedAction is a generic type of action that has the values ```time``` and ```value```. Both values can range from 0 to 1. The ```time``` is always fixed by a pre-defined duration, but ```value``` is calculated by an ease function. ```Value``` can be controlled by both pre-defined functions and user-defined functions.
 
 Getting value and time from Action:
 
@@ -54,10 +52,12 @@ Getting value and time from Action:
     value = action:getValue()
     ```
 
-Class default constructor:  
-**TimeAction(float duration, bool loop)**
+| Used components:                     |
+| ------------------------------------ |
+| ActionComponent                      |
+| TimedActionComponent                 |
 
-Example how to use **TimeAction** that is activating on touch start and on every step triangle is moved:
+Example how to use **TimedAction** class that is activating on touch start and on every step triangle is moved:
 
 === ":octicons-file-code-16: `C++`"
 

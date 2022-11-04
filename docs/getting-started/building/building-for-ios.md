@@ -1,4 +1,4 @@
-## For only for OSX
+## Only for OSX
 
 ### 1. Clone Supernova project
 
