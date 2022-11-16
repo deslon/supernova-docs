@@ -11,7 +11,7 @@ To handle with the variety of resolutions and screen sizes of devices, Supernova
 
 This is the base size you must use for design your project. For 3D projects this is used only for perspective view aspect, but for 2D projects this sizes are very important to positioning objects in screen.
 
-There are 5 types of scaling mode divided by 2 categories.
+There are 6 types of scaling mode divided by 2 categories.
 
 ## Dynamic canvas size modes
 
@@ -28,7 +28,7 @@ This is **default** mode. This keeps canvas width but floats height. Canvas can 
     Engine.scalingMode = Scaling::FITWIDTH
     ```
 
-![Fitwidth](../images/Fitwidth.png)
+![Fitwidth](../images/scaling/Fitwidth.png)
 
 ### FitHeight
 
@@ -43,7 +43,22 @@ It is similar to FitWidth. This keeps canvas height but floats width. Canvas can
     Engine.scalingMode = Scaling::FITHEIGHT
     ```
 
-![Fitheight](../images/Fitheight.png)
+![Fitheight](../images/scaling/Fitheight.png)
+
+### Native
+
+This keeps canvas with native window resolution (width and height) and ignore canvas size by ``setCanvasSize()``.
+
+=== ":octicons-file-code-16: `C++`"
+    ``` c++
+    Engine::setScalingMode(Scaling::NATIVE);
+    ```
+=== ":material-language-lua: `Lua`"
+    ``` lua
+    Engine.scalingMode = Scaling::NATIVE
+    ```
+
+![Stretch](../images/scaling/Native.png)
 
 ## Static canvas size modes
 
@@ -60,7 +75,7 @@ This keeps canvas width and height but empty spaces can be show on screen.
     Engine.scalingMode = Scaling::LETTERBOX
     ```
 
-![Letterbox](../images/Letterbox.png)
+![Letterbox](../images/scaling/Letterbox.png)
 
 ### Crop
 
@@ -73,8 +88,9 @@ This keeps canvas width and height but part of canvas can be out of screen (not 
 === ":material-language-lua: `Lua`"
     ``` lua
     Engine.scalingMode = Scaling::CROP
+    ```
 
-![Crop](../images/Crop.png)
+![Crop](../images/scaling/Crop.png)
 
 ### Stretch
 
@@ -87,5 +103,6 @@ This keeps canvas width and height but scene objects can deform.
 === ":material-language-lua: `Lua`"
     ``` lua
     Engine.scalingMode = Scaling::STRETCH
+    ```
 
-![Stretch](../images/Stretch.png)
+![Stretch](../images/scaling/Stretch.png)
