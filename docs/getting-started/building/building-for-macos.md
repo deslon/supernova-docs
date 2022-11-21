@@ -5,6 +5,7 @@
 ### 2. Install dependencies
 
 * cmake
+* ninja
 
 ### 3. Build for macOS
 #### a. Using build tool
@@ -12,7 +13,7 @@
 In ```tools``` directory:
 
 ```
-python3 supernova.py --build --platform windows
+python3 supernova.py --build --platform macos
 ```
 
 #### b. Using CMake
@@ -30,7 +31,7 @@ cmake \
 -S . \
 -B build \
 -DCMAKE_BUILD_TYPE=Debug \
--G "Visual Studio 17 2022" \
+-G "Ninja" \
 -DCMAKE_INSTALL_PREFIX:PATH=instdir
 ```
 ```
