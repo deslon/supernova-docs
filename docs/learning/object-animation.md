@@ -12,6 +12,8 @@ There are these types of actions:
 * SpriteAnimation
 * Animation
 
+[Actions live sample :octicons-file-code-16:](https://samples.supernovaengine.org/actions/){ .md-button }
+
 ### Action control
 
 Any kind of **action** can be controlled with these tree main methods:
@@ -31,6 +33,7 @@ Also, you can use actions with these callback events:
 | ```onStart()``` | When method Start() is called. |
 | ```onPause()``` | When method pause() is called. |
 | ```onStop()``` | When method stop() is called. |
+| ```onStep()``` | Called at each iteration. |
 
 ## TimedAction
 
@@ -57,8 +60,87 @@ Getting value and time from Action:
 | ActionComponent                      |
 | TimedActionComponent                 |
 
+Example how to use **TimeAction** to move a triangle that is activated by mouse click and positioned by onStep function:
 
-TimedAction cannot be called directly, it is necessary to specify some real action behavior. Next you can see an example using **PositionAction**:
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    #include "Supernova.h"
+    using namespace Supernova;
+
+    #include "Polygon.h"
+    #include "TimedAction.h"
+
+    Scene scene;
+    Polygon triangle(&scene);
+    TimedAction action(&scene);
+
+    void onActionStep();
+    void onMouseDown(int button, float x, float y, int mods);
+
+    void init(){
+        triangle.addVertex(0, -100);
+        triangle.addVertex(-50, 50);
+        triangle.addVertex(50, 50);
+
+        triangle.setPosition(Vector3(300,300,0));
+        triangle.setColor(0.6, 0.2, 0.6, 1);
+
+        action.setDuration(10);
+        action.getComponent<ActionComponent>().onStep = onActionStep;
+
+        Engine::setScene(&scene);
+        Engine::onMouseDown = onMouseDown;
+    }
+
+    void onActionStep(){
+        float angle = M_PI * 2.0 * action.getValue();
+        triangle.setPosition(cos(angle)*100 + 450, sin(angle)*100 + 300, 0);
+    }
+
+    void onMouseDown(int button, float x, float y, int mods){
+        if (action.isRunning())
+            action.pause();
+        else
+            action.start();
+    }
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    scene = Scene()
+    triangle = Polygon(scene)
+    action = TimedAction(scene)
+
+    triangle:addVertex(0, -100)
+    triangle:addVertex(-50, 50)
+    triangle:addVertex(Vector3(50, 50,0))
+
+    triangle.position = Vector3(300,300,0)
+    triangle:setColor(0.6, 0.2, 0.6, 1)
+
+    action.duration = 10
+
+    Engine.setScene(scene)
+
+    function onActionStep()
+        angle = math.pi * 2.0 * action:getValue()
+        triangle:setPosition(math.cos(angle)*100 + 450, math.sin(angle)*100 + 300, 0);
+    end
+    action:getActionComponent().onStep = onActionStep
+
+    function onMouseDown(button, x, y, mods)
+        if (action:isRunning()) then
+            action:pause()
+        else
+            action:start()
+        end
+    end
+    Engine.onMouseDown = onMouseDown
+    ```
+
+Similar to the previous example, the same function can be used with **PositionAction** instead of **TimeAction**. This time it is no longer necessary to use ```onStep()```:
 
 === ":octicons-file-code-16: `C++`"
 
@@ -87,7 +169,6 @@ TimedAction cannot be called directly, it is necessary to specify some real acti
         action.setAction(triangle.getPosition(), Vector3(0,10,0), 2, true);
         action.setTarget(triangle.getEntity());
 
-        Engine::setCanvasSize(1000,480);
         Engine::setScene(&scene);
         Engine::onMouseDown = onMouseDown;
     }
@@ -118,7 +199,6 @@ TimedAction cannot be called directly, it is necessary to specify some real acti
     action:setAction(triangle.position, Vector3(0,10,0), 2, true)
     action.target = triangle.entity
 
-    Engine.setCanvasSize(1000,480)
     Engine.setScene(scene)
 
     function onMouseDown(button, x, y, mods)

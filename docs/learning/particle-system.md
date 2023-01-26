@@ -1,23 +1,26 @@
-In Supernova to use particle system you have to create two kind of objects: Particle Initializers and Particle Modifiers.
+In Supernova to use particle system you have to two kind of tools: Particle Initializers and Particle Modifiers.
 
 * Particle Initializers
-    * ParticleLifeInit
-    * ParticlePositionInit
-    * ParticleRotationInit
-    * ParticleAlphaInit
-    * ParticleColorInit
-    * ParticleSizeInit
-    * ParticleSpriteInit
-    * ParticleVelocityInit
-    * ParticleAccelerationInit
+    * Life
+    * Position
+    * Velocity
+    * Acceleration
+    * Color
+    * Alpha
+    * Size
+    * Sprite
+    * Rotation
 * Particle Modifiers
-    * ParticleAlphaMod
-    * ParticleColorMod
-    * ParticlePositionMod
-    * ParticleRotationMod
-    * ParticleSizeMod
-    * ParticleSpriteMod
-    * ParticleVelocityMod
+    * Position
+    * Velocity
+    * Acceleration
+    * Color
+    * Alpha
+    * Size
+    * Sprite
+    * Rotation
+
+[Particles live sample :octicons-file-code-16:](https://samples.supernovaengine.org/particles/){ .md-button }
 
 Here is an example how Inittializers and Modifiers can be used to create particles animation.
 
@@ -25,208 +28,216 @@ Here is an example how Inittializers and Modifiers can be used to create particl
 
     ``` c++
     #include "Supernova.h"
-    #include "Scene.h"
-    #include "Particles.h"
-    #include "ParticlesAnimation.h"
-    #include "ParticleLifeInit.h"
-    #include "ParticleSizeInit.h"
-    #include "ParticleVelocityInit.h"
-    #include "ParticleColorMod.h"
-    #include "ParticleRotationMod.h"
-
     using namespace Supernova;
 
+    #include "Particles.h"
+    #include "ParticlesAnimation.h"
+
     Scene scene;
-    Particles *particles;
-    ParticlesAnimation* particlesanim;
+
+    Particles particles(&scene);
+    ParticlesAnimation partianim(&scene);
 
     void init(){
-        Engine::setCanvasSize(1000, 480);
-        
-        particles = new Particles();
-        particlesanim = new ParticlesAnimation();
-        
-        particles->setRate(10);
-        particles->setMaxParticles(100);;
-        particles->setTexture("f4.png");
-        particles->setPosition(200, 200, 0);
-        particles->addAction(particlesanim);
-        
-        particlesanim->addInit(new ParticleLifeInit(10, 10));
-        particlesanim->addInit(new ParticleSizeInit(50, 100));
-        particlesanim->addInit(new ParticleVelocityInit(Vector3(-15,-4, 0),Vector3(15,24, 0)));
-        
-        particlesanim->addMod(new ParticleColorMod(10, 0, 0, 1, 0, 1, 0, 0));
-        particlesanim->addMod(new ParticleRotationMod(9, 1, 0, 180));
-        
-        particlesanim->run();
-        
-        scene.addObject(particles);
-        
+        particles.setMaxParticles(100);
+        particles.setTexture("f4.png");
+        particles.setPosition(300, 100, 0);
+        partianim.setTarget(particles.getEntity());
+
+        partianim.setRate(10);
+
+        partianim.setLifeInitializer(10);
+        partianim.setPositionInitializer(Vector3(0,0,0), Vector3(300,0,0));
+        partianim.setVelocityInitializer(Vector3(0,10,0), Vector3(0,50,0));
+        partianim.setColorInitializer(Vector3(0,0,0), Vector3(1,1,1));
+        partianim.setSizeInitializer(10, 50);
+
+        partianim.setVelocityModifier(5, 8, Vector3(0,10,0), Vector3(0,300,0), EaseType::CUBIC_IN_OUT);
+        partianim.setAlphaModifier(4, 6, 1, 0.2);
+
         Engine::setScene(&scene);
+
+        partianim.start();
     }
     ```
 
 === ":material-language-lua: `Lua`"
 
     ``` lua
-    Engine.setCanvasSize(1000,480)
-
     scene = Scene()
 
-    particles = Particles()
-    particlesanim = ParticlesAnimation()
+    particles = Particles(scene)
+    partianim = ParticlesAnimation(scene)
 
-    particles:setRate(10)
-    particles:setMaxParticles(100)
+    particles.maxParticles = 100
+    particles:setPosition(300, 100, 0)
     particles:setTexture("f4.png")
-    particles:setPosition(200, 200, 0)
-    particles:addAction(particlesanim)
+    partianim.target = particles.entity
 
-    particlesanim:addInit(ParticleLifeInit(10, 10))
-    particlesanim:addInit(ParticleSizeInit(50, 100))
-    particlesanim:addInit(ParticleVelocityInit(Vector3(-15,-4, 0),Vector3(15,24, 0)))
+    partianim.rate = 10
 
-    particlesanim:addMod(ParticleColorMod(10, 0, 0, 1, 0, 1, 0, 0))
-    particlesanim:addMod(ParticleRotationMod(9, 1, 0, 180))
+    partianim:setLifeInitializer(10)
+    partianim:setPositionInitializer(Vector3(0,0,0), Vector3(300,0,0))
+    partianim:setVelocityInitializer(Vector3(0,10,0), Vector3(0,50,0))
+    partianim:setColorInitializer(Vector3(0,0,0), Vector3(1,1,1))
+    partianim:setSizeInitializer(10, 50)
 
-    particlesanim:run()
-
-    scene:addObject(particles)
+    partianim:setVelocityModifier(5, 8, Vector3(0,10,0), Vector3(0,300,0), EaseType.CUBIC_IN_OUT)
+    partianim:setAlphaModifier(4, 6, 1, 0.2)
 
     Engine.setScene(scene)
+
+    partianim:start()
     ```
 
 ##Particle Initializers
 
-###ParticleLifeInit
+###Life Initializer
 
 Every particle has its life and this life is regressive. When a particle starts, through this class you can set the lifetime of it. Throughout the life of the particle, when it reaches 0, the particle dies.
 
-Class default constructor:  
-**ParticleLifeInit(float minLife, float maxLife)**
+=== ":octicons-file-code-16: `C++`"
 
-``` c++
-particlesanim->addInit(new ParticleLifeInit(10, 10));
-```
-``` lua
-particlesanim:addInit(ParticleLifeInit(10, 10))
-```
+    ``` c++
+    partianim.setLifeInitializer(10, 10);
+    ```
 
-###ParticlePositionInit
+=== ":material-language-lua: `Lua`"
 
-The inittial position of particle is set with this class.
+    ``` lua
+    partianim:setLifeInitializer(10, 10)
+    ```
 
-Class default constructor:  
-**ParticlePositionInit(Vector3 minPosition, Vector3 maxPosition)**
+###Position Initializer
 
-``` c++
-particlesanim->addInit(new ParticlePositionInit(Vector3(100, 0, 0), Vector3(100, 100, 0)));
-```
-``` lua
-particlesanim:addInit(ParticlePositionInit(Vector3(100, 0, 0), Vector3(100, 100, 0)))
-```
+The initial position of particle.
 
-###ParticleRotationInit
+=== ":octicons-file-code-16: `C++`"
 
-The inittial rotation of particle is set with this class. The engine default is degress, but it can be changed.
+    ``` c++
+    partianim.setPositionInitializer(Vector3(0,0,0), Vector3(300,0,0));
+    ```
 
-Class default constructor:  
-**ParticleRotationInit(float minRotation, float maxRotation)**
+=== ":material-language-lua: `Lua`"
 
-``` c++
-particlesanim->addInit(new ParticleRotationInit(0, 180));
-```
-``` lua
-particlesanim:addInit(ParticleRotationInit(0, 180))
-```
+    ``` lua
+    partianim:setPositionInitializer(Vector3(0,0,0), Vector3(300,0,0))
+    ```
 
-###ParticleAlphaInit
+###Velocity Initializer
 
-It can be used to set particle transparency. When set 0 is total transparent particle, when set 1 is total opaque particle.
+It's the initial velocity of particle.
 
-Class default constructor:  
-**ParticleAlphaInit(float minAlpha, float maxAlpha)**
+=== ":octicons-file-code-16: `C++`"
 
-``` c++
-particlesanim->addInit(new ParticleAlphaInit(0, 0.5))
-```
-``` lua
-particlesanim:addInit(ParticleAlphaInit(0, 0.5))
-```
+    ``` c++
+    partianim.setVelocityInitializer(Vector3(0,10,0), Vector3(0,50,0));
+    ```
 
-###ParticleColorInit
+=== ":material-language-lua: `Lua`"
 
-Can be used to set inittial color of particle.
+    ``` lua
+    partianim:setVelocityInitializer(Vector3(0,10,0), Vector3(0,50,0))
+    ```
 
-Class default constructor:  
-**ParticleColorInit(float minRed, float minGreen, float minBlue, float maxRed, float maxGreen, float maxBlue)**
+###Acceleration Initializer
 
-``` c++
-particlesanim->addInit(new ParticleColorInit(0, 0, 0, 1, 1, 0))
-```
-``` lua
-particlesanim:addInit(ParticleColorInit(0, 0, 0, 1, 1, 0))
-```
+It's to set inital acceleration of particle with this class.
 
-###ParticleSizeInit
+=== ":octicons-file-code-16: `C++`"
 
-Every particle can have its size. This class is used to set inittial size of particle.
+    ``` c++
+    partianim.setAccelerationInitializer(Vector3(0,100,0), Vector3(0,200,0));
+    ```
 
-Class default constructor:  
-**ParticleSizeInit(float minSize, float maxSize)**
+=== ":material-language-lua: `Lua`"
 
-``` c++
-particlesanim->addInit(new ParticleSizeInit(50, 100))
-```
-``` lua
-particlesanim:addInit(ParticleSizeInit(50, 100))
-```
+    ``` lua
+    partianim:setAccelerationInitializer(Vector3(0,100,0), Vector3(0,200,0))
+    ```
 
-###ParticleSpriteInit
+###Color Initializer
 
-A particle can also have a sprite. The sprite of particle is set by an integer and during particle creation the inittial sprite is sorted.  
-In Supernova we call sprite as a rect of sprite sheet. More details you can see in [sprite](sprites) section.
+Can be used to set initial color of particle.
 
-Class default constructor:  
-**ParticleSpriteInit(std::vector<int> frames)**
+=== ":octicons-file-code-16: `C++`"
 
-``` c++
-std::vector<int> sprites;
-sprites.push_back(1);
-sprites.push_back(0);
-sprites.push_back(2);
-particlesanim->addInit(new ParticleSpriteInit(sprites));
-```
-``` lua
-particlesanim->addInit(ParticleSpriteInit({1, 0, 2}));
-```
+    ``` c++
+    partianim.setColorInitializer(Vector3(0,0,0), Vector3(1,1,1));
+    ```
 
-###ParticleVelocityInit
+=== ":material-language-lua: `Lua`"
 
-It's the inittial velocity of particle.
+    ``` lua
+    partianim:setColorInitializer(Vector3(0,0,0), Vector3(1,1,1))
+    ```
 
-Class default constructor:  
-**ParticleVelocityInit(Vector3 minVelocity, Vector3 maxVelocity)**
+###Alpha Initializer
 
-``` c++
-particlesanim->addInit(new ParticleVelocityInit(Vector3(-15, -4, 0),Vector3(15, 24, 0)))
-```
-``` lua
-particlesanim:addInit(ParticleVelocityInit(Vector3(-15, -4, 0),Vector3(15, 24, 0)))
-```
+It can be used to set particle transparency. When set 0 is total transparent particle, when set 1.0 is total opaque particle.
 
-###ParticleAccelerationInit
+=== ":octicons-file-code-16: `C++`"
 
-It's to set inittal acceleration of particle with this class.
+    ``` c++
+    partianim.setAlphaInitializer(0, 1);
+    ```
 
-Class default constructor:  
-**ParticleAccelerationInit(Vector3 minAcceleration, Vector3 maxAcceleration)**
+=== ":material-language-lua: `Lua`"
 
-``` c++
-particlesanim->addInit(new ParticleAccelerationInit(Vector3(0.0f, 9.81f * 5, 0.0f), Vector3(0.0f, 9.81f * 5, 0.0f)));
-```
-``` lua
-particlesanim:addInit(ParticleAccelerationInit(Vector3(0.0f, 9.81f * 5, 0.0f), Vector3(0.0f, 9.81f * 5, 0.0f)))
-```
+    ``` lua
+    partianim:setAlphaInitializer(0, 1)
+    ```
 
+
+###Size Initializer
+
+Every particle can have its size. This class is used to set initial size of particle.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setSizeInitializer(10, 50);
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setSizeInitializer(10, 50)
+    ```
+
+###Sprite Initializer
+
+A particle can also have behave like a sprite. The sprite of particle is set by an integer and during particle creation the initial sprite is sorted.  
+In Supernova we call sprite as a rect of sprite sheet.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    std::vector<int> sprites;
+    sprites.push_back(1);
+    sprites.push_back(0);
+    sprites.push_back(2);
+    partianim.setSpriteIntializer(sprites);
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setSpriteIntializer({1, 0, 2})
+    ```
+
+###Rotation Initializer
+
+The initial rotation of particle is set with this class. The engine default is degress, but it can be changed.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setRotationInitializer(90, 90);
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setRotationInitializer(90, 90)
+    ```

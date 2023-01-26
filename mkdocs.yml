@@ -34,7 +34,7 @@ extra:
     property: UA-113314204-2
   version: 1.0
 
-copyright: 'Copyright &copy; 2022, Eduardo Dória (CC-BY 3.0)'
+copyright: 'Copyright &copy; 2023, Eduardo Dória (CC-BY 3.0)'
 
 markdown_extensions:
   - tables
@@ -66,4 +66,4 @@ nav:
 #  - Coordinate systems: 'learning/coordinate-systems.md'
   - Screen scaling: 'learning/screen-scaling.md'
   - Object animation: 'learning/object-animation.md'
-#  - Particle system: 'learning/particle-system.md'
+  - Particle system: 'learning/particle-system.md'
