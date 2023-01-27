@@ -241,3 +241,133 @@ The initial rotation of particle is set with this class. The engine default is d
     ``` lua
     partianim:setRotationInitializer(90, 90)
     ```
+
+##Particle Modifiers
+
+###Position Modifier
+
+This modifier makes all particles travel from start position to end position in determined time.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setPositionModifier(2, 4, Vector3(0,0,0), Vector3(0,300,0));
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setPositionModifier(2, 4, Vector3(0,0,0), Vector3(0,300,0))
+    ```
+
+###Velocity Modifier
+
+This modifier changes particle velocity in determined time.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setVelocityModifier(5, 8, Vector3(0,10,0), Vector3(0,300,0));
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setVelocityModifier(5, 8, Vector3(0,10,0), Vector3(0,300,0))
+    ```
+
+###Acceleration Modifier
+
+This modifier changes acceleration in determined time.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setAccelerationInitializer(Vector3(0,100,0), Vector3(0,200,0));
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setAccelerationInitializer(Vector3(0,100,0), Vector3(0,200,0))
+    ```
+
+###Color Modifier
+
+This modifier changes color particle in determined time.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setColorModifier(2, 5, Vector3(1,1,1), Vector3(1,0,0));
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setColorModifier(2, 5, Vector3(1,1,1), Vector3(1,0,0))
+    ```
+
+###Alpha Modifier
+
+This modifier changes alpha from particle in determined time.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setAlphaModifier(4, 6, 1, 0.2);
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setAlphaModifier(4, 6, 1, 0.2)
+    ```
+
+###Size Modifier
+
+This modifier changes size of particle in determined time.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setSizeModifier(1, 3, 10, 50);
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setSizeModifier(1, 3, 10, 50)
+    ```
+
+###Sprite Modifier
+
+This modifier changes sprite animation of particle in determined time.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setSpriteModifier(5, 8, {0,1,2});
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setSpriteModifier(5, 8, {0,1,2})
+    ```
+
+###Rotation Modifier
+
+This modifier changes rotation of particle in determined time.
+
+=== ":octicons-file-code-16: `C++`"
+
+    ``` c++
+    partianim.setRotationModifier(1, 5, 0, 360);
+    ```
+
+=== ":material-language-lua: `Lua`"
+
+    ``` lua
+    partianim:setRotationModifier(1, 5, 0, 360)
+    ```
