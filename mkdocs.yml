@@ -69,3 +69,6 @@ nav:
   - Particle system: 'learning/particle-system.md'
 - Class Reference:
   - Engine: 'reference/engine.md'
+  - Input: 'reference/engine.md'
+  - Log: 'reference/log.md'
+  - System: 'reference/system.md'

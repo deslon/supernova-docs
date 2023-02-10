@@ -416,10 +416,10 @@ Called when touch movement is cancelled by system.
 
  * *Property*: static FunctionSubscribe<void(int,float,float,int)\> **onMouseDown**
  * *Callback*: void(int button, float x, float y, int mods)
-     * **button** - Mouse button reference
+     * **button** - Mouse button reference based on [Input](input.md#mouse-button)
     * **x** - Position in canvas
     * **y** - Position in canvas
-    * **mods** - Modifier based on [Input](input.md)
+    * **mods** - Modifier based on [Input](input.md#modifiers)
 
 Called when one of mouse buttons is down.
 
@@ -429,10 +429,10 @@ Called when one of mouse buttons is down.
 
  * *Property*: static FunctionSubscribe<void(int,float,float,int)\> **onMouseUp**
  * *Callback*: void(int button, float x, float y, int mods)
-    * **button** - Mouse button reference
+    * **button** - Mouse button reference based on [Input](input.md#mouse-button)
     * **x** - Position in canvas
     * **y** - Position in canvas
-    * **mods** - Modifier based on [Input](input.md)
+    * **mods** - Modifier based on [Input](input.md#modifiers)
 
 Called when one of mouse buttons is up.
 
@@ -444,7 +444,7 @@ Called when one of mouse buttons is up.
  * *Callback*: void(float x, float y, int mods)
     * **x** - Position in canvas
     * **y** - Position in canvas
-    * **mods** - Modifier based on [Input](input.md)
+    * **mods** - Modifier based on [Input](input.md#modifier)
 
 Called when one of mouse buttons is moving. If [allowEventsOutCanvas](#alloweventsoutcanvas) is true this event is also called if mouse is outside canvas.
 
@@ -456,7 +456,7 @@ Called when one of mouse buttons is moving. If [allowEventsOutCanvas](#alloweven
  * *Callback*: void(float xoffset, float yoffset, int mods)
     * **xoffset** - Scroll x position
     * **yoffset** - Scroll y position
-    * **mods** - Modifier based on [Input](input.md)
+    * **mods** - Modifier based on [Input](input.md#modifiers)
 
 Called when mouse scroll is changed.
 
@@ -484,9 +484,9 @@ Called when mouse pointer leave in canvas boundary.
 
  * *Property*: static FunctionSubscribe<void(int,float,float)\> **onKeyDown**
  * *Callback*: void(int key, bool repeat, int mods)
-    * **xoffset** - Scroll x position
-    * **yoffset** - Scroll y position
-    * **mods** - Modifier based on [Input](input.md)
+    * **key** - Key code based on [Input](input.md#keys)
+    * **repeat** - True if key is keep pressed many times
+    * **mods** - Modifier based on [Input](input.md#modifiers)
 
 Called when any keyboard key is down.
 
@@ -496,9 +496,9 @@ Called when any keyboard key is down.
 
  * *Property*: static FunctionSubscribe<void(int,float,float)\> **onKeyUp**
  * *Callback*: void(int key, bool repeat, int mods)
-    * **key** - Key code based on [Input](input.md)
-    * **repeat** - True if key is keep pressed
-    * **mods** - Modifier based on [Input](input.md)
+    * **key** - Key code based on [Input](input.md#keys)
+    * **repeat** - True if key is keep pressed many times
+    * **mods** - Modifier based on [Input](input.md#modifiers)
 
 Called when any keyboard key is up.
 
