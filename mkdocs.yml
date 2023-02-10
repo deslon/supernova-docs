@@ -67,3 +67,5 @@ nav:
   - Screen scaling: 'learning/screen-scaling.md'
   - Object animation: 'learning/object-animation.md'
   - Particle system: 'learning/particle-system.md'
+- Class Reference:
+  - Engine: 'reference/engine.md'
