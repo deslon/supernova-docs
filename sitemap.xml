@@ -65,4 +65,19 @@
          <lastmod>2023-02-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>http://docs.supernovaengine.org/reference/input/</loc>
+         <lastmod>2023-02-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://docs.supernovaengine.org/reference/log/</loc>
+         <lastmod>2023-02-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://docs.supernovaengine.org/reference/system/</loc>
+         <lastmod>2023-02-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>

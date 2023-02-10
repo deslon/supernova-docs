@@ -15,15 +15,17 @@
         <link rel="canonical" href="http://docs.supernovaengine.org/reference/engine/">
       
       
-        <link rel="prev" href="../../learning/particle-system/">
+        <link rel="prev" href="./">
       
+      
+        <link rel="next" href="../log/">
       
       <link rel="icon" href="../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
-        <title>Engine - Supernova</title>
+        <title>Input - Supernova</title>
       
     
     
@@ -121,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Engine
+              Input
             
           </span>
         </div>
@@ -516,6 +518,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="./" class="md-nav__link">
+        Engine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -526,12 +542,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Engine
+          Input
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Engine
+        Input
       </a>
       
         
@@ -973,6 +989,34 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log/" class="md-nav__link">
+        Log
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system/" class="md-nav__link">
+        System
+      </a>
     </li>
   
 
@@ -1449,7 +1493,7 @@
 
 
 
-  <h1>Engine</h1>
+  <h1>Input</h1>
 
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
 <p>Control engine properties and define defaults to be used in all project. Also <code>Engine</code> class provides canvas info.</p>
@@ -1994,10 +2038,10 @@
 <ul>
 <li><em>Property</em>: static FunctionSubscribe&lt;void(int,float,float,int)> <strong>onMouseDown</strong></li>
 <li><em>Callback</em>: void(int button, float x, float y, int mods)<ul>
-<li><strong>button</strong> - Mouse button reference</li>
+<li><strong>button</strong> - Mouse button reference based on <a href="../input/#mouse-button">Input</a></li>
 <li><strong>x</strong> - Position in canvas</li>
 <li><strong>y</strong> - Position in canvas</li>
-<li><strong>mods</strong> - Modifier based on <a href="input.md">Input</a></li>
+<li><strong>mods</strong> - Modifier based on <a href="../input/#modifiers">Input</a></li>
 </ul>
 </li>
 </ul>
@@ -2007,10 +2051,10 @@
 <ul>
 <li><em>Property</em>: static FunctionSubscribe&lt;void(int,float,float,int)> <strong>onMouseUp</strong></li>
 <li><em>Callback</em>: void(int button, float x, float y, int mods)<ul>
-<li><strong>button</strong> - Mouse button reference</li>
+<li><strong>button</strong> - Mouse button reference based on <a href="../input/#mouse-button">Input</a></li>
 <li><strong>x</strong> - Position in canvas</li>
 <li><strong>y</strong> - Position in canvas</li>
-<li><strong>mods</strong> - Modifier based on <a href="input.md">Input</a></li>
+<li><strong>mods</strong> - Modifier based on <a href="../input/#modifiers">Input</a></li>
 </ul>
 </li>
 </ul>
@@ -2022,7 +2066,7 @@
 <li><em>Callback</em>: void(float x, float y, int mods)<ul>
 <li><strong>x</strong> - Position in canvas</li>
 <li><strong>y</strong> - Position in canvas</li>
-<li><strong>mods</strong> - Modifier based on <a href="input.md">Input</a></li>
+<li><strong>mods</strong> - Modifier based on <a href="../input/#modifier">Input</a></li>
 </ul>
 </li>
 </ul>
@@ -2034,7 +2078,7 @@
 <li><em>Callback</em>: void(float xoffset, float yoffset, int mods)<ul>
 <li><strong>xoffset</strong> - Scroll x position</li>
 <li><strong>yoffset</strong> - Scroll y position</li>
-<li><strong>mods</strong> - Modifier based on <a href="input.md">Input</a></li>
+<li><strong>mods</strong> - Modifier based on <a href="../input/#modifiers">Input</a></li>
 </ul>
 </li>
 </ul>
@@ -2058,9 +2102,9 @@
 <ul>
 <li><em>Property</em>: static FunctionSubscribe&lt;void(int,float,float)> <strong>onKeyDown</strong></li>
 <li><em>Callback</em>: void(int key, bool repeat, int mods)<ul>
-<li><strong>xoffset</strong> - Scroll x position</li>
-<li><strong>yoffset</strong> - Scroll y position</li>
-<li><strong>mods</strong> - Modifier based on <a href="input.md">Input</a></li>
+<li><strong>key</strong> - Key code based on <a href="../input/#keys">Input</a></li>
+<li><strong>repeat</strong> - True if key is keep pressed many times</li>
+<li><strong>mods</strong> - Modifier based on <a href="../input/#modifiers">Input</a></li>
 </ul>
 </li>
 </ul>
@@ -2070,9 +2114,9 @@
 <ul>
 <li><em>Property</em>: static FunctionSubscribe&lt;void(int,float,float)> <strong>onKeyUp</strong></li>
 <li><em>Callback</em>: void(int key, bool repeat, int mods)<ul>
-<li><strong>key</strong> - Key code based on <a href="input.md">Input</a></li>
-<li><strong>repeat</strong> - True if key is keep pressed</li>
-<li><strong>mods</strong> - Modifier based on <a href="input.md">Input</a></li>
+<li><strong>key</strong> - Key code based on <a href="../input/#keys">Input</a></li>
+<li><strong>repeat</strong> - True if key is keep pressed many times</li>
+<li><strong>mods</strong> - Modifier based on <a href="../input/#modifiers">Input</a></li>
 </ul>
 </li>
 </ul>
