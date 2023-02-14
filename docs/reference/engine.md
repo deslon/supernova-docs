@@ -24,6 +24,8 @@ Control engine properties and define defaults to be used in all project. Also ``
 | static void | [setScene](#setscene) | :material-language-cpp: \| :material-language-lua: |
 | static Scene\* | [getScene](#getscene) | :material-language-cpp: \| :material-language-lua: |
 | static void | [addSceneLayer](#addscenelayer) | :material-language-cpp: \| :material-language-lua: |
+| static void | [removeSceneLayer](#removescenelayer) | :material-language-cpp: \| :material-language-lua: |
+| static void | [removeAllSceneLayers](#removeallscenelayers) | :material-language-cpp: \| :material-language-lua: |
 | static int | [getCanvasWidth](#getcanvaswidth) | :material-language-cpp: \| :material-language-lua: |
 | static int | [getCanvasHeight](#getcanvasheight) | :material-language-cpp: \| :material-language-lua: |
 | static int | [getPreferedCanvasWidth](#getpreferedcanvaswidth) | :material-language-cpp: \| :material-language-lua: |
@@ -195,7 +197,7 @@ Define update time in **seconds** for update events callbacks. If ```setFixedTim
 
  * static void **setScene**(Scene* scene)
 
-Set main scene of project.
+Set main scene of project. To remove main scene just set ```setScene(NULL)```.
 
  ---
 
@@ -211,7 +213,23 @@ Get main scene of project.
 
  * static void **addSceneLayer**(Scene\* scene)
 
-Added a scene to stay one layer below main scene. Could be used in a GUI scene.
+Add a scene to stay one layer below main scene. Could be used in a GUI scene.
+
+ ---
+
+### removeSceneLayer
+
+ * static void **removeSceneLayer**(Scene\* scene)
+
+Remove a scene layer.
+
+ ---
+
+### removeAllSceneLayers
+
+ * static void **removeAllSceneLayers**()
+
+Remove all scenes from render, except main scene.
 
  ---
 

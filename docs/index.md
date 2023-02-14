@@ -3,7 +3,7 @@
 This is the official documentation and tutorials of Supernova Engine.
 
 !!! note
-    **Docs is under development.**
+    **Docs are under development.**
 
 <div style="display: flex">
   <div style="flex: 1; margin: 0 1em 0 0">
