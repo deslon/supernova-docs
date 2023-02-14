@@ -31,8 +31,8 @@ extra:
       link: 'https://github.com/supernovaengine/supernova'
   analytics:
     provider: google
-    property: UA-113314204-2
-  version: 1.0
+    property: G-D2G3S99SDC
+  #version: 1.0
 
 copyright: 'Copyright &copy; 2023, Eduardo Dória (CC-BY 3.0)'
 
