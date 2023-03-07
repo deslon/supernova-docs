@@ -8,7 +8,7 @@ Control engine properties and define defaults to be used in all project. Also ``
 | Type | Name | Default | Langs  |
 | ----- | ----------- | ---------- | --------- |
 | static [Scaling](#scaling) | [scalingMode](#scalingmode) | Scaling::FITWIDTH | :material-language-cpp: \| :material-language-lua:  |
-| static [TextureStrategy](#texturestrategy) | [textureStrategy](#texturestrategy_1) | TextureStrategy::RESAMPLE | :material-language-cpp: \| :material-language-lua: |
+| static [TextureStrategy](#texturestrategy) | [textureStrategy](#texturestrategy_1) | TextureStrategy::RESIZE | :material-language-cpp: \| :material-language-lua: |
 | static bool | [callMouseInTouchEvent](#callmouseintouchevent) | false | :material-language-cpp: \| :material-language-lua: |
 | static bool | [callTouchInMouseEvent](#calltouchinmouseevent) | false | :material-language-cpp: \| :material-language-lua: |
 | static bool | [useDegrees](#usedegrees) | true | :material-language-cpp: \| :material-language-lua: |
@@ -82,8 +82,8 @@ Control engine properties and define defaults to be used in all project. Also ``
 
 ### TextureStrategy
 
-* **FIT** - Uses FIT algorithm to change texture resolution
-* **RESAMPLE** - Uses RESAMPLE algorithm to change texture resolution
+* **FIT** - Uses FIT algorithm to change texture size
+* **RESIZE** - Uses RESIZE algorithm to change texture resolution
 * **NONE** - No changes in texture resolution
 
  ---
