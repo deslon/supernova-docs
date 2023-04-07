@@ -79,3 +79,17 @@ Now you can **run** to see the result.
 
 !!! warning
     If you have both Lua and C++ calling Supernova static method ```setScene()```, the last call will be from C++, so Lua code will not work. Use ```NO_CPP_INIT``` or ```NO_LUA_INIT``` macro to avoid init to be called.
+
+    For example, to build with ```NO_CPP_INIT```:
+
+    - CMake: ```cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DNO_CPP_INIT=1 -G "Visual Studio 17 2022" -DCMAKE_INSTALL_PREFIX:PATH=instdir```    
+    - Build tool: ```python3 supernova.py --build --platform windows --no-cpp-init```
+
+    See [Building](/getting-started/building/building-for-windows/) for more.
+
+
+## 3. Running the Project
+
+Considering you have [built and installed](/getting-started/building/building-for-windows/) the project, you can run it by going to `instdir/bin` and opening the executable there.
+
+After you make changes to the code, you have to build and install it again.
