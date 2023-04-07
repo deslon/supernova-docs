@@ -16,6 +16,9 @@
 In ```tools``` directory:
 
 ```
+pip install click
+```
+```
 python3 supernova.py --build --platform linux
 ```
 
