@@ -28,8 +28,8 @@ Control engine properties and define defaults to be used in all project. Also ``
 | static void | [removeAllSceneLayers](#removeallscenelayers) | :material-language-cpp: \| :material-language-lua: |
 | static int | [getCanvasWidth](#getcanvaswidth) | :material-language-cpp: \| :material-language-lua: |
 | static int | [getCanvasHeight](#getcanvasheight) | :material-language-cpp: \| :material-language-lua: |
-| static int | [getPreferedCanvasWidth](#getpreferedcanvaswidth) | :material-language-cpp: \| :material-language-lua: |
-| static int  | [getPreferedCanvasHeight](#getpreferedcanvasheight) | :material-language-cpp: \| :material-language-lua: |
+| static int | [getPreferredCanvasWidth](#getpreferredcanvaswidth) | :material-language-cpp: \| :material-language-lua: |
+| static int  | [getPreferredCanvasHeight](#getpreferredcanvasheight) | :material-language-cpp: \| :material-language-lua: |
 | static [Rect](rect.md)  | [getViewRect](#getviewrect)     | :material-language-cpp: \| :material-language-lua: |
 | static void  | [setUpdateTimeMS](#setupdatetimems)     | :material-language-cpp: \| :material-language-lua: |
 | static void  | [getSceneUpdateTime](#getsceneupdatetime)     | :material-language-cpp: \| :material-language-lua: |
@@ -253,23 +253,23 @@ Get canvas height. This value can be affected by screen scaling mode.
 
  * static void **setCanvasSize**(int canvasWidth, int canvasHeight)
 
-Set prefered canvas size for screen. The values setted could be affected by scaling mode. Original setted value can get by [getPreferedCanvasWidth()](#getpreferedcanvaswidth) and [getPreferedCanvasHeight()](#getpreferedcanvasheight).
+Set preferred canvas size for screen. The values setted could be affected by scaling mode. Original setted value can get by [getPreferredCanvasWidth()](#getpreferredcanvaswidth) and [getPreferredCanvasHeight()](#getpreferredcanvasheight).
 
  ---
 
-### getPreferedCanvasWidth
+### getPreferredCanvasWidth
 
- * static int **getPreferedCanvasWidth**()
+ * static int **getPreferredCanvasWidth**()
 
-Get canvas width that is not modified by screen scaling setup. Prefered canvas is the same value setted in engine.
+Get canvas width that is not modified by screen scaling setup. Preferred canvas is the same value setted in engine.
 
  ---
 
-### getPreferedCanvasHeight
+### getPreferredCanvasHeight
 
- * static int **getPreferedCanvasHeight**()
+ * static int **getPreferredCanvasHeight**()
 
-Get canvas height that is not modified by screen scaling setup. Prefered canvas is the same value setted in engine.
+Get canvas height that is not modified by screen scaling setup. Preferred canvas is the same value setted in engine.
 
   ---
 

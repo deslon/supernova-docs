@@ -17,7 +17,7 @@ There are 6 types of scaling mode divided by 2 categories.
 
 ### FitWidth
 
-This is **default** mode. This keeps canvas width but floats height. Canvas can be changed from original format, but only height changes. Should be used ```getPreferedCanvasWidth()```and ```getPreferedCanvasHeight()``` to get original canvas size.
+This is **default** mode. This keeps canvas width but floats height. Canvas can be changed from original format, but only height changes. Should be used ```getPreferredCanvasWidth()```and ```getPreferredCanvasHeight()``` to get original canvas size.
 
 === ":octicons-file-code-16: `C++`"
     ``` c++
@@ -32,7 +32,7 @@ This is **default** mode. This keeps canvas width but floats height. Canvas can 
 
 ### FitHeight
 
-It is similar to FitWidth. This keeps canvas height but floats width. Canvas can be changed from original format, but only width changes. Should be used ```getPreferedCanvasWidth()```and ```getPreferedCanvasHeight()``` to get original canvas size.
+It is similar to FitWidth. This keeps canvas height but floats width. Canvas can be changed from original format, but only width changes. Should be used ```getPreferredCanvasWidth()```and ```getPreferredCanvasHeight()``` to get original canvas size.
 
 === ":octicons-file-code-16: `C++`"
     ``` c++
