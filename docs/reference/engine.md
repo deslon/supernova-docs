@@ -47,6 +47,8 @@ Control engine properties and define defaults to be used in all project. Also ``
 | void() | [onViewChanged](#onviewchanged) | :material-language-cpp: \| :material-language-lua: |
 | void() | [onDraw](#ondraw) | :material-language-cpp: \| :material-language-lua: |
 | void() | [onUpdate](#onupdate) | :material-language-cpp: \| :material-language-lua: |
+| void() | [onPause](#onPause) | :material-language-cpp: \| :material-language-lua: |
+| void() | [onResume](#onResume) | :material-language-cpp: \| :material-language-lua: |
 | void() | [onShutdown](#onshutdown) | :material-language-cpp: \| :material-language-lua: |
 | void(int,float,float) | [onTouchStart](#ontouchstart) | :material-language-cpp: \| :material-language-lua: |
 | void(int,float,float) | [onTouchEnd](#ontouchend) | :material-language-cpp: \| :material-language-lua: |
@@ -373,6 +375,24 @@ Called in a fixed time based on [updateTime](#updatetime).
 !!! note ""
 
     This update callback is not affected by [fixedTimeSceneUpdate](#fixedtimesceneupdate)
+
+  ---
+
+### onPause
+
+ * *Property*: static FunctionSubscribe<void()\> **onPause**
+ * *Callback*: void()
+
+Pause called by system.
+
+  ---
+
+### onResume
+
+ * *Property*: static FunctionSubscribe<void()\> **onResume**
+ * *Callback*: void()
+
+Resume called by system.
 
   ---
 
